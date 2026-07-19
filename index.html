@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy Birthday Akka ❤️</title>
+    <meta name="description" content="A special birthday surprise dedicated to the most amazing sister in the world">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav id="navbar">
+        <div class="nav-brand">🎂 <span>Birthday</span></div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#timeline">Memories</a></li>
+            <li><a href="#reasons">Why Amazing</a></li>
+            <li><a href="#letter">Letter</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#wishes">Wishes</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══════════════ FLOATING ELEMENTS CONTAINER ═══════════════ -->
+    <div id="floating-container" aria-hidden="true"></div>
+
+    <!-- ═══════════════ CONFETTI CANVAS ═══════════════ -->
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <!-- ═══════════════ FIREWORKS CANVAS ═══════════════ -->
+    <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
+    <!-- ═══════════════ MUSIC CONTROLLER (FLOATING) ═══════════════ -->
+    <div id="music-controller">
+        <button id="musicToggle" class="music-btn" aria-label="Play/Pause Music">
+            <span class="music-icon-play">▶</span>
+            <span class="music-icon-pause" style="display:none;">⏸</span>
+        </button>
+        <div class="music-visualizer">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <!--
+        ╔═══════════════════════════════════════════════════════════╗
+        ║  HOW TO ADD BACKGROUND MUSIC:                            ║
+        ║  1. Place your audio file in the "music/" folder         ║
+        ║  2. Open js/main.js                                      ║
+        ║  3. Find the BACKGROUND_MUSIC_FILE variable near top     ║
+        ║  4. Set it to your filename, e.g. 'music/birthday.mp3'  ║
+        ╚═══════════════════════════════════════════════════════════╝
+    -->
+
+    <!-- ═══════════════ HERO SECTION ═══════════════ -->
+    <section id="hero">
+        <div class="hero-bg-shapes" aria-hidden="true">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="fairy-lights" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">✨ A Special Surprise ✨</div>
+            <h1 class="hero-title">
+                <span class="title-line">🎉 Happy Birthday</span>
+                <span class="title-line title-name">My Dear Lovely Akka<span class="heart-beat">❤️</span></span>
+            </h1>
+            <p class="hero-subtitle" id="typingText"></p>
+            <div class="hero-subtitle-full" style="display:none;">You are not just my sister... You are my best friend, my biggest supporter, and my forever inspiration.</div>
+
+            <!-- Animated Birthday Cake -->
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="candle-row">
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                    </div>
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+
+            <a href="#gallery" class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="scroll-arrow">↓</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PHOTO GALLERY ═══════════════ -->
+    <section id="gallery">
+        <div class="section-header">
+            <span class="section-icon">📸</span>
+            <h2 class="section-title">Our Beautiful Memories</h2>
+            <p class="section-subtitle">A collection of our precious moments together</p>
+        </div>
+        <div class="masonry-grid" id="galleryGrid">
+            <div class="gallery-item">
+                <img src="images/photo1.jpg" alt="Memory 1" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Beautiful Moments 💕</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo2.jpg" alt="Memory 2" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Family ❤️</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo3.jpg" alt="Memory 3" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Lovely Smile ✨</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-empty-state" id="galleryEmptyState" style="display: none;">
+            <div class="empty-icon">📷</div>
+            <h3>Add Your Photos Here</h3>
+            <p>Place your photos in the <strong>images/</strong> folder and add them to the gallery grid in <strong>index.html</strong>.<br>See the HTML comments above the gallery grid for easy instructions!</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MEMORY TIMELINE ═══════════════ -->
+    <section id="timeline">
+        <div class="section-header">
+            <span class="section-icon">🕰️</span>
+            <h2 class="section-title">Our Memory Lane</h2>
+            <p class="section-subtitle">A journey through our beautiful moments together</p>
+        </div>
+        <div class="timeline-container">
+            <!-- Childhood Memories -->
+            <div class="timeline-item reveal-left">
+                <div class="timeline-dot">👶</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">Childhood</span>
+                    <h3>Childhood Memories 🧸</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your childhood memory -->
+                        Those golden childhood days when we used to play together, share everything, and create the most beautiful memories. You were always my protector and my guide.
+                    </p>
+                </div>
+            </div>
+            <!-- School Memories -->
+            <div class="timeline-item reveal-right">
+                <div class="timeline-dot">📚</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">School Days</span>
+                    <h3>School Memories 🏫</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your school memory -->
+                        Remember those school days? You always helped me with homework, packed my bags, and made sure I was ready for every exam. The best study partner ever!
+                    </p>
+                </div>
+            </div>
+            <!-- Family Trips -->
+            <div class="timeline-item reveal-left">
+                <div class="timeline-dot">✈️</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">Adventures</span>
+                    <h3>Family Trips 🌍</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your family trip memory -->
+                        Every family trip became an adventure with you! From long road trips to exploring new places, you always made every journey fun and unforgettable.
+                    </p>
+                </div>
+            </div>
+            <!-- Funny Moments -->
+            <div class="timeline-item reveal-right">
+                <div class="timeline-dot">😂</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">Fun Times</span>
+                    <h3>Funny Moments 🤣</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your funny moment -->
+                        The inside jokes, the pranks, the uncontrollable laughter sessions — nobody can make me laugh like you do! Every moment with you is filled with joy.
+                    </p>
+                </div>
+            </div>
+            <!-- Festivals -->
+            <div class="timeline-item reveal-left">
+                <div class="timeline-dot">🪔</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">Celebrations</span>
+                    <h3>Festival Celebrations 🎊</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your festival memory -->
+                        Every festival feels incomplete without you! From getting ready together to celebrating with the family — you make every occasion special and memorable.
+                    </p>
+                </div>
+            </div>
+            <!-- Special Achievements -->
+            <div class="timeline-item reveal-right">
+                <div class="timeline-dot">🏆</div>
+                <div class="timeline-card glass-card">
+                    <span class="timeline-badge">Proud Moments</span>
+                    <h3>Special Achievements 🌟</h3>
+                    <p>
+                        <!-- ✏️ EDIT: Replace this text with your achievement memory -->
+                        Every achievement of yours has been a celebration for the entire family. You inspire everyone around you with your dedication, hard work, and perseverance!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ REASONS WHY YOU'RE AMAZING ═══════════════ -->
+    <section id="reasons">
+        <div class="section-header">
+            <span class="section-icon">💖</span>
+            <h2 class="section-title">Why You're So Amazing</h2>
+            <p class="section-subtitle">Just a few of the million reasons we love you</p>
+        </div>
+        <div class="reasons-grid">
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">❤️</div>
+                <h3>Caring</h3>
+                <p>You always put others before yourself. Your caring nature makes everyone feel loved and cherished.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">🌸</div>
+                <h3>Kind</h3>
+                <p>Your kindness knows no bounds. You spread warmth wherever you go with your gentle soul.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">😊</div>
+                <h3>Beautiful Smile</h3>
+                <p>Your smile lights up the entire room. It's the most beautiful thing in the world to us.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">💪</div>
+                <h3>Strong</h3>
+                <p>Your inner strength inspires everyone around you. You face every challenge with courage and grace.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">✨</div>
+                <h3>Inspirational</h3>
+                <p>You inspire us every single day with your dedication, passion, and never-give-up attitude.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">🏡</div>
+                <h3>Family's Happiness</h3>
+                <p>You are the heart of our family. Our home is happier because of your presence and love.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">🌈</div>
+                <h3>Always Supports Me</h3>
+                <p>No matter what, you've always stood by my side. Your support means the world to me.</p>
+            </div>
+            <div class="reason-card glass-card reveal">
+                <div class="reason-emoji">🥰</div>
+                <h3>My Forever Favorite Person</h3>
+                <p>You are and always will be my most favorite person in this entire world. No one compares to you!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BIRTHDAY LETTER ═══════════════ -->
+    <section id="letter">
+        <div class="section-header">
+            <span class="section-icon">💌</span>
+            <h2 class="section-title">A Letter From My Heart</h2>
+            <p class="section-subtitle">Words I want you to read on your special day</p>
+        </div>
+        <div class="letter-wrapper reveal">
+            <div class="letter-card glass-card">
+                <div class="letter-decorations" aria-hidden="true">
+                    <span class="letter-corner letter-corner-tl">✿</span>
+                    <span class="letter-corner letter-corner-tr">✿</span>
+                    <span class="letter-corner letter-corner-bl">✿</span>
+                    <span class="letter-corner letter-corner-br">✿</span>
+                </div>
+                <div class="letter-content">
+                    <h3 class="letter-greeting">Happy Birthday Akka ❤️</h3>
+                    <div class="letter-body">
+                        <p>Thank you for always taking care of me, supporting me, and standing by my side. Every memory with you is precious, and I feel lucky to have a sister like you.</p>
+                        <p>I pray that your life is filled with happiness, success, good health, and endless smiles. May all your dreams come true.</p>
+                        <p>Stay happy and keep shining forever.</p>
+                    </div>
+                    <div class="letter-signature">
+                        <p>Love You Always ❤️</p>
+                        <span class="letter-sign">~ Your Loving Sibling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BIRTHDAY COUNTDOWN / SPECIAL DAY ═══════════════ -->
+    <section id="special-day">
+        <div class="special-day-content">
+            <div class="sparkle-burst" aria-hidden="true">
+                <span>✨</span><span>⭐</span><span>✨</span><span>💫</span><span>✨</span>
+            </div>
+            <div class="special-day-text reveal">
+                <h2>🎂</h2>
+                <h2 class="glow-text">Today is Your Special Day</h2>
+                <p class="special-day-sub">Every moment of today is dedicated to celebrating YOU!</p>
+                <button class="celebrate-btn" id="celebrateBtn">
+                    <span>🎉</span> Celebrate! <span>🎉</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ MUSIC SECTION ═══════════════ -->
+    <section id="music">
+        <div class="section-header">
+            <span class="section-icon">🎵</span>
+            <h2 class="section-title">Birthday Playlist</h2>
+            <p class="section-subtitle">Songs that remind us of beautiful memories</p>
+        </div>
+        <div class="music-section-content">
+            <div class="playlist-container glass-card reveal">
+                <div class="playlist-header">
+                    <div class="playlist-art">🎶</div>
+                    <div class="playlist-info">
+                        <h3>Akka's Special Playlist</h3>
+                        <p>Songs curated with love</p>
+                    </div>
+                </div>
+                <div class="playlist-tracks" id="playlistTracks">
+                    <!--
+                    ╔══════════════════════════════════════════════════════════════╗
+                    ║  HOW TO ADD SONGS:                                           ║
+                    ║                                                              ║
+                    ║  1. Place your audio files in the "music/" folder             ║
+                    ║  2. Add playlist items below using this template:             ║
+                    ║                                                              ║
+                    ║  <div class="playlist-track" data-src="music/song.mp3">      ║
+                    ║      <div class="track-number">1</div>                       ║
+                    ║      <div class="track-info">                                ║
+                    ║          <span class="track-name">Song Title</span>          ║
+                    ║          <span class="track-artist">Artist Name</span>       ║
+                    ║      </div>                                                  ║
+                    ║      <div class="track-duration">3:45</div>                  ║
+                    ║  </div>                                                      ║
+                    ║                                                              ║
+                    ║  Supported formats: .mp3, .wav, .ogg, .m4a                   ║
+                    ╚══════════════════════════════════════════════════════════════╝
+                    -->
+                </div>
+                <div class="playlist-empty" id="playlistEmpty">
+                    <div class="empty-icon">🎵</div>
+                    <p>Add your favorite songs to the <strong>music/</strong> folder<br>and list them here in <strong>index.html</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ WISHES WALL ═══════════════ -->
+    <section id="wishes">
+        <div class="section-header">
+            <span class="section-icon">🌟</span>
+            <h2 class="section-title">Birthday Wishes Wall</h2>
+            <p class="section-subtitle">Love and blessings from your family & friends</p>
+        </div>
+        <div class="wishes-grid">
+            <!--
+            ╔══════════════════════════════════════════════════════════╗
+            ║  HOW TO ADD WISHES:                                      ║
+            ║                                                          ║
+            ║  Copy and edit the wish card template below.             ║
+            ║  Change the name, emoji, and message for each person.    ║
+            ╚══════════════════════════════════════════════════════════╝
+            -->
+            <div class="wish-card glass-card reveal">
+                <div class="wish-emoji">👨‍👩‍👧‍👦</div>
+                <h3 class="wish-from">From Family</h3>
+                <!-- ✏️ EDIT: Replace with actual family wish -->
+                <p class="wish-message">Happy Birthday to the most wonderful daughter and sister! May your day be as special as you are. We love you more than words can say!</p>
+                <div class="wish-hearts" aria-hidden="true">❤️❤️❤️</div>
+            </div>
+            <div class="wish-card glass-card reveal">
+                <div class="wish-emoji">👩</div>
+                <h3 class="wish-from">From Amma</h3>
+                <!-- ✏️ EDIT: Replace with actual mother's wish -->
+                <p class="wish-message">My dearest child, you are my pride and joy. Wishing you all the happiness in the world on your special day. God bless you always!</p>
+                <div class="wish-hearts" aria-hidden="true">💕💕💕</div>
+            </div>
+            <div class="wish-card glass-card reveal">
+                <div class="wish-emoji">👨</div>
+                <h3 class="wish-from">From Nanna</h3>
+                <!-- ✏️ EDIT: Replace with actual father's wish -->
+                <p class="wish-message">Happy Birthday, my dear! You make us proud every single day. May you achieve everything you dream of. Stay blessed!</p>
+                <div class="wish-hearts" aria-hidden="true">💖💖💖</div>
+            </div>
+            <div class="wish-card glass-card reveal">
+                <div class="wish-emoji">🤗</div>
+                <h3 class="wish-from">From Your Sibling</h3>
+                <!-- ✏️ EDIT: Replace with your actual wish -->
+                <p class="wish-message">Happy Birthday to my favorite person! Thank you for being the best sister in the world. I love you to the moon and back! 🌙</p>
+                <div class="wish-hearts" aria-hidden="true">🥰🥰🥰</div>
+            </div>
+            <!--
+                ✏️ ADD MORE WISH CARDS by copying a wish-card div above
+                and changing the emoji, name, and message.
+            -->
+        </div>
+    </section>
+
+    <!-- ═══════════════ FINAL SECTION ═══════════════ -->
+    <section id="final">
+        <div class="final-bg-shapes" aria-hidden="true">
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        <div class="final-content reveal">
+            <div class="final-sparkles" aria-hidden="true">
+                <span>✨</span><span>💫</span><span>⭐</span><span>✨</span><span>💫</span>
+            </div>
+            <p class="final-once-again">Once Again...</p>
+            <h2 class="final-title glow-text">Happy Birthday Akka <span class="heart-beat">❤️</span></h2>
+            <div class="final-divider"></div>
+            <p class="final-made-with">Made with Endless Love by Your Loving Sibling ❤️</p>
+            <div class="final-emojis" aria-hidden="true">
+                🎂 🎈 🎉 🎊 🎁 💐 🌸 💖
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>© 2026 Birthday Surprise | Made with Love ❤️</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ LIGHTBOX ═══════════════ -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">❮</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next">❯</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Gallery image">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <!-- Background Audio Element -->
+    <audio id="bgMusic" loop preload="none">
+        <!-- Add your music source here, e.g.: <source src="music/birthday-song.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
