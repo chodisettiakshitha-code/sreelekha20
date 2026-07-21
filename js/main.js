@@ -5,7 +5,7 @@
 
 /* ─── CONFIGURATION ─── */
 // Set your background music file path here:
-const BACKGROUND_MUSIC_FILE = ''; // e.g. 'music/birthday-song.mp3'
+const BACKGROUND_MUSIC_FILE = 'music/nalone_pongenu.mp3';
 
 /* ═══════════════════════════════════════════
    DOM READY
